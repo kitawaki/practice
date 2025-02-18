@@ -12,22 +12,18 @@ else:
     print('奇数です')
 
 # ３．ループ処理
-sum = 0
+sum_1_to_100 = 0
 for i in range(101):
     sum += i
 print('問題３：', sum)
 
 # ４．リストの操作
 numbers = [10, 200, 30, 400, 50, 600]
-Over100Num = []
-for i in numbers:
-    if i >= 100:
-        Over100Num.append(i)
-print('問題４：', Over100Num)
+print('問題４：', [num for num in numbers if num >= 100])
 
 # ５．関数の作成
 def add_numbers(a, b):
-    return (a + b)
+    return a + b
 a = 5
 b = 3
 print('問題５：', add_numbers(a, b))
@@ -41,10 +37,7 @@ print('問題６：', person)
 
 # ７． タプルの活用
 numbers = (10, 25, 8, 42, 17)
-sum = 0
-for i in numbers:
-    sum += i
-print('問題７： 合計値＝', sum, '、最大値＝', max(numbers))
+print('問題７： 合計値＝', sum(numbers), '、最大値＝', max(numbers))
 
 # ８． 辞書のキー・値の取得
 fruits = {"apple": 3, "banana": 5, "orange": 2}
