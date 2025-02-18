@@ -1,7 +1,7 @@
 # １．変数とデータ型
-x = 100
+x = "100"
 y = 50
-print('問題１：', x + y)
+print('問題１：', int(x) + y)
 
 # ２．条件分岐
 num_input = input('問題２： 数値を入力してください: ')
@@ -14,8 +14,8 @@ else:
 # ３．ループ処理
 sum_1_to_100 = 0
 for i in range(101):
-    sum += i
-print('問題３：', sum)
+    sum_1_to_100 += i
+print('問題３：', sum_1_to_100)
 
 # ４．リストの操作
 numbers = [10, 200, 30, 400, 50, 600]
