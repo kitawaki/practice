@@ -2,11 +2,8 @@
 １．文字列操作
 ユーザーから入力された文字列を逆順にして表示するプログラムを書いてください。（例: "python" → "nohtyp"）
 '''
-str_input = input('文字列を入力してください：')
-str_list = list(str_input)
-str_list.reverse()
-str = ''.join(str_list)
-print('問題１：', str)
+str_reverse = input('文字列を入力してください：')
+print('問題１：', str_reverse[::-1])
 
 '''
 ２．辞書の操作
@@ -18,15 +15,12 @@ scores = {
     "Charlie": [90, 100, 85]
 }
 
-class Student:
-    def avg(self, name, math, english, japanese):
-        print(name, (math + english + japanese) / 3)
+def avg(name, sum_scores):
+        print(name, sum(sum_scores) / 3)
 
 print('問題２：')
-student = Student()
-student.avg("Alice", *scores["Alice"])
-student.avg("Bob", *scores["Bob"])
-student.avg("Charlie", *scores["Charlie"])
+for name, score in scores.items():
+     avg(name, score)
 
 '''
 ３．ファイル操作
@@ -34,9 +28,8 @@ data.txt というファイルを作成し、その中に "Hello, Python!" と�
 '''
 import os
 
-f = open('data.txt', 'w')
-f.write('Hello, Python!')
-f.close()
+with open('data.txt', 'w') as f:
+    f.write('Hello, Python!')
 
 if os.path.isfile('data.txt'):
     print('問題３：data.txtが作成されました。')
@@ -54,7 +47,7 @@ class Person:
         self.age = age
 
     def introduce(self):
-        print('問題４：私は', self.name, 'です。', self.age, '歳です。')
+        print(f'問題４：私は {self.name} です。{self.age} 歳です。')
 
 myself = Person('菅井', 26)
 myself.introduce()
@@ -64,8 +57,14 @@ myself.introduce()
 ユーザーに数値を入力してもらい、それを整数に変換するプログラムを作成してください。
 ただし、数値以外が入力された場合は "数値を入力してください" と表示するようにしてください。
 '''
+def num_input():
+    number = input('数値を入力してください：')
+    return number
+    
 while True:
-    num_input = input('数値を入力してください：')
-    if num_input.isdigit() == True:
+    try:
+        print('問題５：', float(num_input()))
+    except ValueError:
+        continue
+    else:
         break
-print('問題５：', int(num_input))
