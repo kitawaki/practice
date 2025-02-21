@@ -16,7 +16,7 @@ scores = {
 }
 
 def avg(name, sum_scores):
-        print(name, sum(sum_scores) / 3)
+        print(name, sum(sum_scores) / len(sum_scores))
 
 print('問題２：')
 for name, score in scores.items():
@@ -57,14 +57,7 @@ myself.introduce()
 ユーザーに数値を入力してもらい、それを整数に変換するプログラムを作成してください。
 ただし、数値以外が入力された場合は "数値を入力してください" と表示するようにしてください。
 '''
-def num_input():
-    number = input('数値を入力してください：')
-    return number
-    
-while True:
-    try:
-        print('問題５：', float(num_input()))
-    except ValueError:
-        continue
-    else:
-        break
+try:
+    print('問題５：', float(input('数値を入力してください：')))
+except ValueError:
+    print('数値を入力してください')
