@@ -21,7 +21,7 @@ def max_subarray_sum(nums):
     max_sum = nums[0]
     max_ending = nums[0]
 
-    for i in range(len(nums)):
+    for i in range(1, len(nums)):
         max_ending = max(max_ending + nums[i], nums[i])
         max_sum = max(max_ending, max_sum)
 
@@ -36,11 +36,9 @@ print('問題２：', max_subarray_sum(nums))
 かどうかを判定する関数 is_anagram(s1, s2) を作成してください。
 '''
 def is_anagram(s1, s2):
-    print(f'{s1, s2} → {sorted(list(s1)) == sorted(list(s2))}')
+    return sorted(list(s1)) == sorted(list(s2))
 
-print('問題３：')
-is_anagram('listen', 'silent')
-is_anagram('hello', 'world')
+print(f'問題３： listen, silent == {is_anagram('listen', 'silent')} | hello, world == {is_anagram('hello', 'world')}')
 
 '''
 ４．JSONファイルの読み書き
@@ -61,11 +59,11 @@ with open('data.json') as f:
 ソートされた2つのリストを統合して1つのソート済みリストを返す関数 merge_sorted_lists(list1, list2) を作成してください。
 （マージソートのマージ部分）
 '''
-def merge_sorted_list(list1, list2):
+def merge_sorted_lists(list1, list2):
     list1.extend(list2)
     print('問題５：', sorted(list1))
 
-merge_sorted_list([1, 3, 5], [2, 4, 6])
+merge_sorted_lists([1, 3, 5], [2, 4, 6])
 
 '''
 ６．クラスの継承
@@ -79,13 +77,13 @@ class Animal:
         print(self.cry)
 
 class Dog(Animal):
-    def __init__(self, cry):
-        super().__init__(cry)
-
+    def speak(self):
+        return super().speak()
+        
 class Cat(Animal):
-    def __init__(self, cry):
-        super().__init__(cry)
-
+    def speak(self):
+        return super().speak()
+        
 dog = Dog('ワン')
 cat = Cat('ニャー')
 print('問題６：')
